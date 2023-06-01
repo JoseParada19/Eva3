@@ -7,17 +7,6 @@ function formulario(){
     let contrasenia= eContra.value;
     console.log(contrasenia)
 
-    let eHombre= document.getElementById("hombre")
-    let hombre= eHombre.Checked;
-    console.log(hombre)
-
-    let eMujer= document.getElementById("mujer")
-    let mujer= eMujer.Checked;
-    console.log(mujer)
-
-    let eOtro= document.getElementById("otro")
-    let otro= eOtro.Checked;
-    console.log(otro)
 }
 document.getElementById("enviar").addEventListener("click",formulario)
 
@@ -28,13 +17,26 @@ document.getElementById("enviar").addEventListener("click",formulario)
 var registro=()=>{
     let enombre = document.getElementById("nombreapellido");
     let econtraseña = document.getElementById("contraseniaa");
+    let eemail = document.getElementById("email");
+    let echeckbox = document.getElementById("check");
+    let eintereses = document.getElementById("interes");
+    let edolar = document.getElementById("moneda");
+
     let nombree = enombre.value;
     let contraseniaaa = econtraseña.value;
-
+    let correo = eemail.value;
+    let ccheck = echeckbox.value;
+    let interesss = eintereses.value;
+    let euro = edolar.value;
+   
     console.log(nombree)
     console.log(contraseniaaa)
+    console.log(correo)
+    console.log(ccheck)
+    console.log(interesss)
+    console.log(euro)
     
-    let persona ={"nombreapellido":nombree,"contraseniaaa":contraseniaaa}
+    let persona ={"nombreapellido":nombree,"contraseniaaa":contraseniaaa,"email":correo,"check":ccheck,"interes":interesss,"moneda":euro}
     let listadopersonas=localStorage.getItem("personas");
     let listadoantiguo=JSON.parse(listadopersonas);
 
@@ -47,6 +49,7 @@ var registro=()=>{
         listadonuevo =[...listadoantiguo]
     }
     
+
     console.log(persona)
     console.log(listadoantiguo)
     console.log(listadonuevo)
