@@ -8,13 +8,14 @@ function formulario(){
     console.log(contrasenia)
 
 }
-document.getElementById("enviar").addEventListener("click",formulario)
+//document.getElementById("enviar").addEventListener("click",formulario)
 
 
 
 
 
 var registro=()=>{
+    let eTabla = document.getElementById("tabla");
     let enombre = document.getElementById("nombreapellido");
     let econtraseña = document.getElementById("contraseniaa");
     let eemail = document.getElementById("email");
@@ -45,8 +46,8 @@ var registro=()=>{
     if(listadoantiguo==null){
         listadonuevo =[persona]
     }else{
-        listadoantiguo.push(persona)
-        listadonuevo =[...listadoantiguo]
+        //listadoantiguo.push(persona)
+        listadonuevo =[...listadoantiguo,persona]
     }
     
 
@@ -54,5 +55,33 @@ var registro=()=>{
     console.log(listadoantiguo)
     console.log(listadonuevo)
     localStorage.setItem("personas",JSON.stringify(listadonuevo));
+    //document.getElementById("enviar").addEventListener("click", registro)
+
+    render ="<table>"
+    render+= "<tr><th>nombreyApellido</th><th>contraseña</th><th>contraseña</th><th>Email</th><th>Pregunta</th><th>intereses</th><th>moneda</th><th>accion</th></tr>"
+    for (let i =0; i < listadonuevo.length; i++) {
+        const element= listadonuevo[i];
+        //console.log(element)
+        render+="<tr>"
+        render+="<td>"+element.nombreapellido+"</td>"
+        render+="<td>"+element.contrasenia+"</td>"
+        render+="<td>"+element.email+"</td>"
+        render+="<td>"+element.check+"</td>"
+        render+="<td>"+element.interes+"</td>"
+        render+="<td>"+element.moneda+"</td>"
+        render+="<td>"
+        render+="<button id='btneditar"+i+"'>editar</button>"
+        render+="<button>eliminar</button>"
+        render+="</td>"
+        render+="</tr>"
+    }
+    render += "</table>";
+    eTabla.innerHTML = render;
+    for(let i = 0; i < listadonuevo.length; i++){
+    var eEnviar = document.getElementById("btneditar"+i);
+    let element = listadonuevo[i]
+    eEnviar.addEventListener("click",()=>{alert("Holaaaa"+element.nombreapellido+" "+element.contrasenia+" "+element.email+" "+element.check+" "+element.interes+" "+element.moneda)})
+    }
+
 }
-    document.getElementById("enviar").addEventListener("click", registro)
+    document.getElementById("Enviar").addEventListener("click",registro);
