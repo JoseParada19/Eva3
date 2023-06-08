@@ -1,4 +1,4 @@
-function formulario(){
+//function formulario(){
     let eName= document.getElementById("nombreapellido")
     let name= eName.value;
     console.log(name)
@@ -7,15 +7,119 @@ function formulario(){
     let contrasenia= eContra.value;
     console.log(contrasenia)
 
-}
+//}
 //document.getElementById("enviar").addEventListener("click",formulario)
 
+var modificar = (listadonuevo)=>{
+    let enombre = document.getElementById("nombreapellido");
+    let econtraseña = document.getElementById("contraseniaa");
+    let eemail = document.getElementById("email");
+    let echeckbox = document.getElementById("check");
+    let eintereses = document.getElementById("intereses");
+    let edolar = document.getElementById("moneda");
+    let eBtneditar = document.getElementById("BtnEditar");
+
+   let nombree = enombre.value;
+   let contraseniaaa = econtraseña.value;
+   let correo = eemail.value;
+   let ccheck = echeckbox.value;
+   let interesss = eintereses.value;
+   let euro = edolar.value;
+   let indice = eBtneditar.value;
+
+   listadonuevo[indice].nombree = nombree;
+   listadonuevo[indice].contraseniaaa = contraseniaaa;
+   listadonuevo[indice].correo = correo;
+   listadonuevo[indice].ccheck = ccheck;
+   listadonuevo[indice].interesss = interesss;
+   listadonuevo[indice].euro = euro;
+   
+   localStorage.setItem("personas",JSON.stringify(listadonuevo));
+   
+   cargarTabla(listadonuevo)
+}
 
 
+var eliminar = (listadonuevo)=>{
+    let eBtneliminar = document.getElementById("BtnEliminar");
+    let indice = eBtneliminar.value;
+    console.log(listadonuevo)
+    lista = listadonuevo.filter((p)=>p.id!=indice)
+    console.log(lista)
+    localStorage.setItem("personas",JSON.stringify(lista));
+    cargarTabla(lista)
+}
+
+
+var cargarTabla = (listadonuevo)=>{
+    let eTabla = document.getElementById("tabla");
+    let enombre = document.getElementById("nombreapellido");
+    let econtraseña = document.getElementById("contraseniaa");
+    let eemail = document.getElementById("email");
+    let echeckbox = document.getElementById("check");
+    let eintereses = document.getElementById("intereses");
+    let edolar = document.getElementById("moneda");
+    
+    render = "<table>"
+    render+= "<tr><th> Nombre_Apellido </th><th> Contraseña </th><th> Email </th><th> Check </th><th> Intereses </th><th> Moneda </th></tr>"
+    for (let i = 0; i <listadonuevo.length; i++) {
+        const element = listadonuevo[i];
+        render+="<tr>"
+        render+="<td>"+element.nombreapellido+"</td>"
+        render+="<td>"+element.contraseniaa+"</td>"
+        render+="<td>"+element.email+"</td>"
+        render+="<td>"+element.check+"</td>"
+        render+="<td>"+element.intereses+"</td>"
+        render+="<td>"+element.moneda+"</td>"
+        render+="<td>"
+        render+="<button id='btnEditar"+i+"'>Editar</button>"
+        render+="<button id='btnEliminar"+i+"'>Eliminar</button>"
+        render+="</td>"
+        render+="</tr>"
+
+
+    }
+    render += "</table>";
+    eTabla.innerHTML = render;
+    for (let i = 0; i < listadonuevo.length; i++) {
+        var eBtn = document.getElementById("btnEditar"+i);
+        var eBtn2 = document.getElementById("btnEliminar"+i);
+        let element = listadonuevo[i]
+        eBtn.addEventListener("click",()=>{
+            enombre.value = element.nombreapellido;
+            econtraseña.value = element.contraseniaa;
+            eemail.value = element.email;
+            echeckbox.value = element.check;
+            eintereses.value = element.interes;
+            edolar.value = element.moneda;
+            let sEditar = "<button type='button' id='btnEditar' value='"+i+"'>Editar</button>";
+
+            let tablaboton = document.getElementById("tablaBtn");
+            tablaboton.innerHTML = sEditar;
+            let eBtneditarr = document.getElementById("btnEditar");
+            eBtneditarr.addEventListener("click",()=>modificar(listadonuevo))
+        })
+        eBtn2.addEventListener("click",()=>{
+            enombre.value = element.nombreapellido;
+            econtraseña.value = element.contraseniaa;
+            eemail.value = element.email;
+            echeckbox = element.check;
+            eintereses = element.interes;
+            edolar = element.moneda;
+            
+            let sEliminar = "<button type='button' id='btnEliminar' value='"+i+"'>Eliminar</button";
+            let tablaboton = document.getElementById("tablabtn");
+            tablaboton.innerHTML = sEliminar;
+            let eBtnEliminar = document.getElementById("btnEliminar");
+            eBtnEliminar.addEventListener("click",()=>eliminar(listadonuevo))
+
+        })
+    }
+}
 
 
 var registro=()=>{
-    let eTabla = document.getElementById("tabla");
+    
     let enombre = document.getElementById("nombreapellido");
     let econtraseña = document.getElementById("contraseniaa");
     let eemail = document.getElementById("email");
@@ -55,33 +159,77 @@ var registro=()=>{
     console.log(listadoantiguo)
     console.log(listadonuevo)
     localStorage.setItem("personas",JSON.stringify(listadonuevo));
-    //document.getElementById("enviar").addEventListener("click", registro)
-
-    render ="<table>"
-    render+= "<tr><th>nombreyApellido</th><th>contraseña</th><th>contraseña</th><th>Email</th><th>Pregunta</th><th>intereses</th><th>moneda</th><th>accion</th></tr>"
-    for (let i =0; i < listadonuevo.length; i++) {
-        const element= listadonuevo[i];
-        //console.log(element)
-        render+="<tr>"
-        render+="<td>"+element.nombreapellido+"</td>"
-        render+="<td>"+element.contrasenia+"</td>"
-        render+="<td>"+element.email+"</td>"
-        render+="<td>"+element.check+"</td>"
-        render+="<td>"+element.interes+"</td>"
-        render+="<td>"+element.moneda+"</td>"
-        render+="<td>"
-        render+="<button id='btneditar"+i+"'>editar</button>"
-        render+="<button>eliminar</button>"
-        render+="</td>"
-        render+="</tr>"
-    }
-    render += "</table>";
-    eTabla.innerHTML = render;
-    for(let i = 0; i < listadonuevo.length; i++){
-    var eEnviar = document.getElementById("btneditar"+i);
-    let element = listadonuevo[i]
-    eEnviar.addEventListener("click",()=>{alert("Holaaaa"+element.nombreapellido+" "+element.contrasenia+" "+element.email+" "+element.check+" "+element.interes+" "+element.moneda)})
-    }
-
+    
+    cargarTabla(listadoNuevo)
+    
 }
-    document.getElementById("Enviar").addEventListener("click",registro);
+
+document.getElementById("Enviar").addEventListener("click",registro);
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------
+
+//var registrar = ()=>{
+    let enombre = document.getElementById("nombreapellido");
+    let econtraseña = document.getElementById("contraseniaa");
+
+    let nombre = enombre.value;
+    let contraseña = econtraseña.value;
+
+    console.log(nombre);
+    console.log(contraseña);
+
+    let listadoPersonas = localStorage.getItem("personas");
+    let listadoAntiguo = JSON.parse(listadoPersonas);
+
+    if(listadoAntiguo==null){
+        let persona = {"id": 0,"nombre":nombre,"contraseña":contraseña}
+        listadoNuevo = [persona]
+    }else{
+        //listadoAntiguo.push(persona)
+        let persona = {"id": listadoAntiguo.length,"nombre":nombre,"contraseña":contraseña}
+        listadoNuevo = [...listadoAntiguo,persona]
+    }
+
+    //console.log(persona)
+
+    console.log(listadoAntiguo)
+    console.log(listadoNuevo);
+    localStorage.setItem("personas",JSON.stringify(listadoNuevo));
+
+    //eContenedorTabla.innerHTML = ""+listadoNuevo.length;
+    //tabla
+
+    cargarTabla(listadoNuevo)
+
+    //
+    
+//}
+
+//document.getElementById("Enviar").addEventListener("click",registro);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
