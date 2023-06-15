@@ -11,7 +11,7 @@ var cargarTabla = (listadonuevo)=>{
     
     render = "<table>"
     render+= "<tr><th> Nombre_Apellido </th><th> Contraseña </th><th> Email </th><th> Check </th><th> Intereses </th><th> Moneda </th></tr>"
-    for (let i = 0; i <listadonuevo.length; i++) {
+    for (let i = 0; i < listadonuevo.length; i++) {
         const element = listadonuevo[i];
         console.log(element)
         render+="<tr>"
@@ -40,14 +40,14 @@ var cargarTabla = (listadonuevo)=>{
 
             let eBtnEditarUp = document.getElementById("btnEditar");
             console.log(eBtnEditarUp)
-            eBtnEditarUp.addEventListener('click',()=>modificar(listadoNuevo))
+            eBtnEditarUp.addEventListener('click',()=>modificar(listadonuevo))
 
 
             enombre.value = element.nombreapellido;
             econtrasena.value = element.contraseniaa;
             eemail.value = element.email;
             echeckbox = element.check;
-            eintereses = element.intere;
+            eintereses = element.interes;
             edolar.value = element.moneda;
         })
 
@@ -61,7 +61,7 @@ var cargarTabla = (listadonuevo)=>{
 
             let eBtnEliminarUp = document.getElementById("btnEliminar");
             console.log(eBtnEliminarUp)
-            eBtnEliminarUp.addEventListener('click',()=>eliminar(listadoNuevo)) 
+            eBtnEliminarUp.addEventListener('click',()=>eliminar(listadonuevo)) 
        
        
             enombre.value = element.nombreapellido;
@@ -133,7 +133,6 @@ var registro=()=>{
     let nombree = enombre.value;
     let contraseniaaa = econtrasena.value;
     let correo = eemail.value;
-    //Verificar si el check esta marcado
     let ccheck = echeckbox.checked;
     console.log(ccheck)
     //if que compare segun si es false o true
@@ -153,15 +152,15 @@ var registro=()=>{
     console.log(listaAntiguo)
     if(listaAntiguo==null){
         let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":ccheck,"interes":interesss,"moneda":euro};
-        var listadoNuevo = [persona]
+        var listadonuevo = [persona]
     }else{
-        let persona = {"id":listaAntiguo.length,"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":ccheck,"interes":interesss,"moneda":euro};
-        var listadoNuevo = [...listaAntiguo,persona]
+        let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":ccheck,"interes":interesss,"moneda":euro};
+        var listadonuevo = [...listaAntiguo,persona]
     }
-    console.log(listadoNuevo)
-    localStorage.setItem("personas",JSON.stringify(listadoNuevo));
+    console.log(listadonuevo)
+    localStorage.setItem("personas",JSON.stringify(listadonuevo));
     
-    cargarTabla(listadoNuevo)
+    cargarTabla(listadonuevo)
 }
 
 
