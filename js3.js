@@ -29,7 +29,7 @@ var cargarTabla = (listadonuevo)=>{
 
 
     }
-    render += "</table>";
+    render+="</table>";
     eTabla.innerHTML = render;
     for (let i = 0; i < listadonuevo.length; i++) {
         const element = listadonuevo[i];
@@ -78,6 +78,7 @@ var cargarTabla = (listadonuevo)=>{
 
 
 var modificar = (listadonuevo)=>{
+    console.log("AAAA")
     let enombre = document.getElementById("nombreapellido");
     let econtrasena = document.getElementById("contraseniaa");
     let eemail = document.getElementById("email");
@@ -86,20 +87,20 @@ var modificar = (listadonuevo)=>{
     let edolar = document.getElementById("moneda");
     let eBtneditar = document.getElementById("btnEditar");
 
-    let nombree = enombre.value;
-    let contraseniaaa = econtrasena.value;
-    let correo = eemail.value;
-    let ccheck = echeckbox.value;
-    let interesss = eintereses.value;
-    let euro = edolar.value;
+    let nombreapellido = enombre.value;
+    let contraseniaa = econtrasena.value;
+    let email = eemail.value;
+    let check = echeckbox.value;
+    let interes = eintereses.value;
+    let moneda = edolar.value;
     let indice = eBtneditar.value;
 
-    listadonuevo[indice].nombree = nombree;
-    listadonuevo[indice].contraseniaaa = contraseniaaa;
-    listadonuevo[indice].correo = correo;
-    listadonuevo[indice].ccheck = ccheck;
-    listadonuevo[indice].interesss = interesss;
-    listadonuevo[indice].euro = euro;
+    listadonuevo[indice].nombreapellido = nombreapellido;
+    listadonuevo[indice].contraseniaa = contraseniaa;
+    listadonuevo[indice].email = email;
+    listadonuevo[indice].check = check;
+    listadonuevo[indice].interes = interes;
+    listadonuevo[indice].moneda = moneda;
     
     localStorage.setItem("personas",JSON.stringify(listadonuevo));
     
