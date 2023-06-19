@@ -173,7 +173,29 @@ var obtenerDatos = ()=>{
 document.getElementById("Enviar").addEventListener("click",registro)
 addEventListener('load',obtenerDatos)
 
+//------------Cambio de color del fondo------------------------
 
+
+var Color =()=> {
+    let btn = document.getElementById("btnColor");
+    if(btn.value == "0"){
+        let elements = document.getElementsByClassName("Rojo");
+        elements[0].classList.add("Azul");
+        elements[0].classList.remove("Rojo");
+        btn.value = "1";
+    }
+    else if(btn.value =="1"){
+        let elements = document.getElementsByClassName("Azul");
+        elements[0].classList.add("Rojo");
+        elements[0].classList.remove("Azul");
+        btn.value = "0";
+    }
+}
+document.getElementById("btnColor").addEventListener("click",Color);
+
+
+
+//-----------Cambio de Tamaño--------------------------------------
 
 
 

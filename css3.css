@@ -1,0 +1,17 @@
+.Rojo{
+    color:blue;
+    background-color: red;
+}
+.Azul{
+    color:red;
+    background-color: blue;
+}
+.small-letras{
+    font-size: 10px;
+}
+.medium-letras{
+    font-size: 15px;
+}
+.large-letras{
+    font-size: 20px;
+}
