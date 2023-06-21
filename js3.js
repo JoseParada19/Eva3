@@ -135,16 +135,18 @@ var registro=()=>{
     let contraseniaaa = econtrasena.value;
     let correo = eemail.value;
     let ccheck = echeckbox.checked;
-    console.log(ccheck)
-    //if que compare segun si es false o true
-    //guardar un valor que tu estimes
     let interesss = eintereses.value;
     let euro = edolar.value;
+    if(ccheck==true){
+        opcion=("El usuario si desea seguir comprando aca");
+    }else if(ccheck==false){
+        opcion=("El usuario no desea seguir comprando aca");
+    }
    
     console.log(nombree)
     console.log(contraseniaaa)
     console.log(correo)
-    console.log(ccheck)
+    console.log(opcion)
     console.log(interesss)
     console.log(euro)
     
@@ -152,10 +154,10 @@ var registro=()=>{
     let listaAntiguo = JSON.parse(listadoAntiguoStr);
     console.log(listaAntiguo)
     if(listaAntiguo==null){
-        let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":ccheck,"interes":interesss,"moneda":euro};
+        let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro};
         var listadonuevo = [persona]
     }else{
-        let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":ccheck,"interes":interesss,"moneda":euro};
+        let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro};
         var listadonuevo = [...listaAntiguo,persona]
     }
     console.log(listadonuevo)
