@@ -191,15 +191,43 @@ var Color =()=> {
         btn.value = "0";
     }
 }
-document.getElementById("btnColor").addEventListener("click",Color);
-
-
 
 //-----------Cambio de Tamaño--------------------------------------
+var letra = ()=>{
+    let btn = document.getElementById("btnLetra");
+    if (btn.value == "0"){
+        let elements = document.getElementsByClassName("small-letras");
+        const largo = elements.length;
+        for(let i = 0; i < largo; i++){
+            const element=elements[0];
+            element.classList.add("medium-letras")
+            element.classList.remove("small-letras")
+        }
+        btn.value = "1"
+    }
+    else if (btn.value == "1"){
+        let elements = document.getElementsByClassName("medium-letras");
+        const largo = elements.length;
+        for (let i = 0; i < largo; i++){
+            let element=elements[0];
+            element.classList.replace("medium-letras","large-letras")
+        }
+        btn.value = "2"
+    }
+    else if(btn.value=="2"){
+        const elements = document.getElementsByClassName("large-letras");
+        const largo = elements.length;
+        for(let i =0; i <largo; i++){
+            const element = elements[0];
+            element.classList.add("small-letras")
+            element.classList.remove("large-letras")
+        }
+        btn.value="0"
+    }
+}
 
-
-
-
+document.getElementById("btnColor").addEventListener("click",Color);
+document.getElementById("btnLetra").addEventListener("click",letra);
 
 
 
