@@ -78,7 +78,7 @@ var cargarTabla = (listadonuevo)=>{
 
 
 var modificar = (listadonuevo)=>{
-    console.log("AAAA")
+    
     let enombre = document.getElementById("nombreapellido");
     let econtrasena = document.getElementById("contraseniaa");
     let eemail = document.getElementById("email");
@@ -135,14 +135,16 @@ var registro=()=>{
     let contraseniaaa = econtrasena.value;
     let correo = eemail.value;
     let ccheck = echeckbox.checked;
-    let interesss = eintereses.value;
-    let euro = edolar.value;
+
     if(ccheck==true){
         opcion=("El usuario si desea seguir comprando aca");
     }else if(ccheck==false){
         opcion=("El usuario no desea seguir comprando aca");
     }
-   
+
+    let interesss = eintereses.value;
+    let euro = edolar.value;
+
     console.log(nombree)
     console.log(contraseniaaa)
     console.log(correo)
@@ -152,7 +154,9 @@ var registro=()=>{
     
     let listadoAntiguoStr= localStorage.getItem("personas");
     let listaAntiguo = JSON.parse(listadoAntiguoStr);
+
     console.log(listaAntiguo)
+
     if(listaAntiguo==null){
         let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro};
         var listadonuevo = [persona]
@@ -160,6 +164,7 @@ var registro=()=>{
         let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro};
         var listadonuevo = [...listaAntiguo,persona]
     }
+
     console.log(listadonuevo)
     localStorage.setItem("personas",JSON.stringify(listadonuevo));
     
@@ -176,8 +181,6 @@ document.getElementById("Enviar").addEventListener("click",registro)
 addEventListener('load',obtenerDatos)
 
 //------------Cambio de color del fondo------------------------
-
-
 var Color =()=> {
     let btn = document.getElementById("btnColor");
     if(btn.value == "0"){
@@ -193,36 +196,35 @@ var Color =()=> {
         btn.value = "0";
     }
 }
-
 //-----------Cambio de Tamaño--------------------------------------
 var letra = ()=>{
     let btn = document.getElementById("btnLetra");
     if (btn.value == "0"){
-        let elements = document.getElementsByClassName("small-letras");
+        let elements = document.getElementsByClassName("chico");
         const largo = elements.length;
         for(let i = 0; i < largo; i++){
             const element=elements[0];
-            element.classList.add("medium-letras")
-            element.classList.remove("small-letras")
+            element.classList.add("mediano")
+            element.classList.remove("chico")
         }
         btn.value = "1"
     }
     else if (btn.value == "1"){
-        let elements = document.getElementsByClassName("medium-letras");
+        let elements = document.getElementsByClassName("mediano");
         const largo = elements.length;
         for (let i = 0; i < largo; i++){
             let element=elements[0];
-            element.classList.replace("medium-letras","large-letras")
+            element.classList.replace("mediano","largoo")
         }
         btn.value = "2"
     }
     else if(btn.value=="2"){
-        const elements = document.getElementsByClassName("large-letras");
+        const elements = document.getElementsByClassName("largoo");
         const largo = elements.length;
         for(let i =0; i <largo; i++){
             const element = elements[0];
-            element.classList.add("small-letras")
-            element.classList.remove("large-letras")
+            element.classList.add("chico")
+            element.classList.remove("largoo")
         }
         btn.value="0"
     }
