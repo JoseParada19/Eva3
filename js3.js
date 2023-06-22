@@ -1,4 +1,3 @@
-
 var cargarTabla = (listadonuevo)=>{
     let eSBtnAccion = document.getElementById("sBtnAccion");
     let eTabla = document.getElementById("tabla");
@@ -119,7 +118,6 @@ var eliminar = (listadonuevo)=>{
     localStorage.setItem("personas",JSON.stringify(listaFinal));
     cargarTabla(lista)
 }
-
 
 
 var registro=()=>{
