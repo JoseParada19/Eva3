@@ -1,3 +1,7 @@
+
+
+// //
+
 var cargarTabla = (listadonuevo)=>{
     let eSBtnAccion = document.getElementById("sBtnAccion");
     let eTabla = document.getElementById("tabla");
@@ -37,6 +41,8 @@ var cargarTabla = (listadonuevo)=>{
             let sBtn = "<button type='button' id='btnEditar' value='"+i+"'>Editar</button>"
             eSBtnAccion.innerHTML=sBtn
 
+              // //
+
             let eBtnEditarUp = document.getElementById("btnEditar");
             console.log(eBtnEditarUp)
             eBtnEditarUp.addEventListener('click',()=>modificar(listadonuevo))
@@ -58,6 +64,8 @@ var cargarTabla = (listadonuevo)=>{
             let sBtn = "<button type='button' id='btnEliminar' value='"+i+"'>Eliminar</button>"
             eSBtnAccion.innerHTML = sBtn
 
+            // //
+
             let eBtnEliminarUp = document.getElementById("btnEliminar");
             console.log(eBtnEliminarUp)
             eBtnEliminarUp.addEventListener('click',()=>eliminar(listadonuevo)) 
@@ -75,6 +83,7 @@ var cargarTabla = (listadonuevo)=>{
 }
 
 
+// //
 
 var modificar = (listadonuevo)=>{
     
@@ -107,6 +116,8 @@ var modificar = (listadonuevo)=>{
 }
 
 
+// //
+
 var eliminar = (listadonuevo)=>{
     let eBtnEliminarUp = document.getElementById("btnEliminar");
     let indice = eBtnEliminarUp.value;
@@ -119,6 +130,8 @@ var eliminar = (listadonuevo)=>{
     cargarTabla(lista)
 }
 
+
+// //
 
 var registro=()=>{
     
@@ -169,6 +182,7 @@ var registro=()=>{
     cargarTabla(listadonuevo)
 }
 
+// //
 
 var obtenerDatos = ()=>{
     let listadoAntiguoStr = localStorage.getItem("personas");
@@ -177,6 +191,14 @@ var obtenerDatos = ()=>{
 }
 document.getElementById("Enviar").addEventListener("click",registro)
 addEventListener('load',obtenerDatos)
+
+
+
+
+
+
+// //
+
 
 //------------Cambio de color del fondo------------------------
 var Color =()=> {
@@ -194,6 +216,12 @@ var Color =()=> {
         btn.value = "0";
     }
 }
+
+
+
+// //
+
+
 //-----------Cambio de Tamaño--------------------------------------
 var letra = ()=>{
     let btn = document.getElementById("btnLetra");
