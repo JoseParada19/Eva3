@@ -1,10 +1,10 @@
 .Rojo{
-    color:blue;
-    background-color: red;
+    color:lightblue;
+    background-color: olive;
 }
 .Azul{
-    color:red;
-    background-color: blue;
+    color:olive;
+    background-color: lightblue;
 }
 .chico{
     font-size: 10px;

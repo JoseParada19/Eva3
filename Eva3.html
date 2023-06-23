@@ -10,32 +10,21 @@
     crossorigin="anonymous">
     <link rel="stylesheet" href="css3.css">
 
-<style type="text/css" id="operaUserStyle"></style>
+
 
 
 </head>
-
-<body class="Rojo">
   
-<html lang="en">
-<head>
-    <title>Document</title>
-    <link rel="stylesheet"  href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
-    crossorigin="anonymous">
-
-</head>
-
 <!-- inicio -->
+<button id="btnColor" value="0">--Color de fondo--</button>
+<button id="btnLetra" value="1">--Tamaño Letra--</button>
 
-<body class="border border-4 border-warning">
-    <section class="navbar navbar-dark bg-primary" id="1">
+<body class="Rojo mediano">
+    <section class="navbar navbar-dark mediano" id="1">
         <div class="container">
             <img src="img/WhatsApp Image 2023-05-01 at 1.33.32 PM.jpeg" class="img Tubal" alt="...">
         </div>
-        <button class="navbar-toggler" class="btn btn-warning" type="button"
+        <button class="navbar-toggler mediano" class="btn btn-warning mediano" type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarS"
             aria-controls="navbarS"
@@ -44,28 +33,28 @@
         >
         <span class="navbar-toggler-icon"></span>
 
-        <div class="container">    
+        <div class="container mediano">    
         </button>
         <div class="collapse navbar-collapse mediano" id="navbarS">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 btn btn-primary mediano">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 btn  mediano">
                 <li class="nav-item mediano">
-                    <a href="#1" class="nav-link btn btn-dark mediano">Inicio</a>
+                    <a href="#1" class="nav-link mediano">Inicio</a>
 
                 </li>
                 <li class="nav-item mediano">
-                    <a href="#2" class="nav-link btn btn-dark mediano">Servicio</a>
+                    <a href="#2" class="nav-link mediano">Servicio</a>
 
                 </li>
                 <li class="nav-item mediano">
-                    <a href="#3" class="nav-link btn btn-dark mediano">Nosotros</a>
+                    <a href="#3" class="nav-link mediano">Nosotros</a>
 
                 </li>
                 <li class="nav-item mediano">
-                    <a href="#4" class="nav-link btn btn-dark mediano">Ubicanos</a>
+                    <a href="#4" class="nav-link mediano">Ubicanos</a>
 
                 </li>
                 <li class="nav-item mediano">
-                    <a href="#5" class="nav-link btn btn-dark mediano">Contactanos</a>
+                    <a href="#5" class="nav-link mediano">Contactanos</a>
 
                 </li>
      
@@ -76,12 +65,12 @@
     
 
 
-    <section class="container">
+    <section class="container mediano">
         <img src="img/inicio cilindro.jpg" class="rounded mx-auto d-block w-100"  alt="inicioo">
         <br>
         <br>
     <!-- Nuestros servicios -->
-            <h1 class="border border-primary text-center fw-bold mediano" id="2"> Nuestros servicios como empresa<br>
+            <h1 class="border  text-center fw-bold mediano" id="2"> Nuestros servicios como empresa<br>
                 <p class="fw-semibold mediano">Reaparición Mantención</p>
                 <br>
                 <p class="fw-normal mediano">Hidraulica</p>
@@ -187,58 +176,96 @@
     <br>
     
     <!-- Formulario -->
-    <button id="btnColor" value="0">--Color de fondo--</button>
-    <button id="btnLetra" value="1">--Tamaño Letra--</button>
-    
     <h4 class="text-center mediano" id="5">Formulario</h4>
-    <form class="mediano" class="container">
+
+
+    <form class="mediano was-validated container">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre Y Apellido</label>
-            <input type="text" class="form-control" id="nombreapellido" aria-describedby="emailHelp">
+            <input type="text" class="form-control" id="nombreapellido" aria-describedby="emailHelp" required="">
+            <!--Valicacion Nombre -->
+            <div class="invalid-feedback">
+              Ingrese un Nombre
+            </div>
+           
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Ingrese una Contraseña</label>
-            <input type="password" class="form-control" id="contraseniaa">
+            <input type="password" class="form-control" id="contraseniaa" required="">
+            <!--Validacion contraseña -->
+          </div>
+          <div class="invalid-feedback">
+            Ingrese una contraseña 
           </div>
 
           <br>
-        
-          
-        
+      
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Ingrese su Email</label>
-            <input type="email" class="form-control" id="email" placeholder="-Email-">
+            <input type="email" class="form-control" id="email" placeholder="-Email-" required="">
+            <!--Validacion Email -->
+          </div>
+          <div class="invalid-feedback">
+            Ingrese un Email 
           </div>
 
           <br>
 
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="check">
-            <label class="form-check-label" for="exampleCheck1">¿Piensa seguir trabajando con nosotros?</label>
+            <label class="form-check-label" for="exampleCheck1" required="">¿Piensa seguir trabajando con nosotros?</label>
+          </div>
+          <!--Validacion Check -->
+          <div class="invalid-feedback">
+            Ingrese una opcion 
           </div>
 
           <br>
 
           <div class="input-group">
             <span class="input-group-text">Ingrese sus intereses en maquinaria</span>
-            <textarea class="form-control" id="interes" aria-label="With textarea"></textarea>
+            <textarea class="form-control" id="interes" aria-label="With textarea" required=""></textarea>
+          <!--Validacion interes-->
           </div>
-
+          <div class="invalid-feedback">
+            Ingrese sus intereses 
+          </div>
       <br>
       <br>
-
-    
             <div class="form-floating">
               <select class="form-select" id="moneda" aria-label="Floating label select example">
-                <option value="Otro">Otro</option>
-                <option value="Zona Norte">Zona norte</option>
-                <option value="Zona Centro">Zona centro</option>
-                <option value="Zona Sur">Zona sur</option>
-                
+                <option value="Otro" required="">Otro</option>
+                <option value="Zona Norte" required="">Zona norte</option>
+                <option value="Zona Centro" required="">Zona centro</option>
+                <option value="Zona Sur" required="">Zona sur</option>
+                <!--Validacion Zona -->
+              </div>
+              <div class="invalid-feedback">
+                Ingrese su zona 
+              </div>
+
               </select>
               <label for="floatingSelect">Ingrese su Zona</label>
             </div>
-            
-       
+
+            <div class="input-group">
+              <span class="text-n">
+
+              </span>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div class="mb-3">
+              <p class="mediano">Ingrese un archivo de apoyo si es necesario</p>
+              <input type="file" class="form-control" aria-label="file example" id="file">
+            </div>
+            <div class="col-6 container">
+            <label for="customRange2" class="form-label">Que Tanto le gusto la paguina</label>
+            <input type="range" class="form-range" min="0" max="5" id="customRange2">
+            </div>
+   
 <br>
 <br>
 
@@ -260,6 +287,9 @@ crossorigin="anonymous"></script>
 </div>
         
 <!-- Redes Sociales -->
+<br>
+<br>
+<br>
 
 <h1 class="text-center mediano">¡¡¡Visitanos En Nuestras Redes Sociales!!!</h1>
 
@@ -282,7 +312,7 @@ crossorigin="anonymous"></script>
 </section>
 <br>
 <br>
-<div class="navbar navbar-dark bg-primary">
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" 

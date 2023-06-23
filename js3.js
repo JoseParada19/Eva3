@@ -11,9 +11,10 @@ var cargarTabla = (listadonuevo)=>{
     let echeckbox = document.getElementById("check");
     let eintereses = document.getElementById("interes");
     let edolar = document.getElementById("moneda");
+    let efile = document.getElementById("file");
     
     render = "<table>"
-    render+= "<tr><th> Nombre_Apellido </th><th> Contraseña </th><th> Email </th><th> Check </th><th> Intereses </th><th> Moneda </th></tr>"
+    render+= "<tr><th> Nombre_Apellido </th><th> Contraseña </th><th> Email </th><th> Check </th><th> Intereses </th><th> Moneda </th><th> Documento </th></tr>"
     for (let i = 0; i < listadonuevo.length; i++) {
         const element = listadonuevo[i];
         console.log(element)
@@ -24,6 +25,7 @@ var cargarTabla = (listadonuevo)=>{
         render+="<td>"+element.check+"</td>"
         render+="<td>"+element.interes+"</td>"
         render+="<td>"+element.moneda+"</td>"
+        render+="<td>"+element.file+"</td>"
         render+="<td>"
         render+="<button id='btnEditar"+i+"'>Editar</button>"
         render+="<button id='btnEliminar"+i+"'>Eliminar</button>"
@@ -54,6 +56,7 @@ var cargarTabla = (listadonuevo)=>{
             echeckbox = element.check;
             eintereses = element.interes;
             edolar.value = element.moneda;
+            efile.value = element.file;
         })
 
 
@@ -77,6 +80,7 @@ var cargarTabla = (listadonuevo)=>{
             echeckbox = element.check;
             eintereses = element.interes;
             edolar = element.moneda;
+            efile = element.file;
             
         })
     }
@@ -94,6 +98,7 @@ var modificar = (listadonuevo)=>{
     let eintereses = document.getElementById("interes");
     let edolar = document.getElementById("moneda");
     let eBtneditar = document.getElementById("btnEditar");
+    let efile = document.getElementById("file")
 
     let nombreapellido = enombre.value;
     let contraseniaa = econtrasena.value;
@@ -101,6 +106,7 @@ var modificar = (listadonuevo)=>{
     let check = echeckbox.value;
     let interes = eintereses.value;
     let moneda = edolar.value;
+    let file = efile.value;
     let indice = eBtneditar.value;
 
     listadonuevo[indice].nombreapellido = nombreapellido;
@@ -109,6 +115,7 @@ var modificar = (listadonuevo)=>{
     listadonuevo[indice].check = check;
     listadonuevo[indice].interes = interes;
     listadonuevo[indice].moneda = moneda;
+    listadonuevo[indice].file = file;
     
     localStorage.setItem("personas",JSON.stringify(listadonuevo));
     
@@ -141,6 +148,7 @@ var registro=()=>{
     let echeckbox = document.getElementById("check");
     let eintereses = document.getElementById("interes");
     let edolar = document.getElementById("moneda");
+    let efile = document.getElementById("file")
 
     let nombree = enombre.value;
     let contraseniaaa = econtrasena.value;
@@ -155,13 +163,15 @@ var registro=()=>{
 
     let interesss = eintereses.value;
     let euro = edolar.value;
-
+    let file = efile.value;
+ 
     console.log(nombree)
     console.log(contraseniaaa)
     console.log(correo)
     console.log(opcion)
     console.log(interesss)
     console.log(euro)
+    console.log(file)
     
     let listadoAntiguoStr= localStorage.getItem("personas");
     let listaAntiguo = JSON.parse(listadoAntiguoStr);
@@ -169,10 +179,10 @@ var registro=()=>{
     console.log(listaAntiguo)
 
     if(listaAntiguo==null){
-        let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro};
+        let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro,"file":file};
         var listadonuevo = [persona]
     }else{
-        let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro};
+        let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro,"file":file};
         var listadonuevo = [...listaAntiguo,persona]
     }
 
