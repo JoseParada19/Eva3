@@ -1,6 +1,5 @@
-
-
-// //
+/*cargarTabla toma como parametro a listadonuevo, con let declaramos las variables,
+con "document.getElementbyId", identificamos de html el id que se le dio, en mi caso tabla,nombreapellido,contraseniaa etc.. */
 
 var cargarTabla = (listadonuevo)=>{
     let eSBtnAccion = document.getElementById("sBtnAccion");
@@ -12,9 +11,13 @@ var cargarTabla = (listadonuevo)=>{
     let eintereses = document.getElementById("interes");
     let edolar = document.getElementById("moneda");
     let efile = document.getElementById("file");
-    
+    let erango = document.getElementById("rango")
+
+    /*aca tengo entendido que genera una tabla de "listadonuevo", y la variable en este caso render se concatena con las etiquetas
+     y valores, generando una tabla con los nombres y valores que incluya */
+
     render = "<table>"
-    render+= "<tr><th> Nombre_Apellido </th><th> Contraseña </th><th> Email </th><th> Check </th><th> Intereses </th><th> Moneda </th><th> Documento </th></tr>"
+    render+= "<tr><th> Nombre_Apellido </th><th> Contraseña </th><th> Email </th><th> Check </th><th> Intereses </th><th> Zona </th><th> Documento </th><th> Rango </th></tr>"
     for (let i = 0; i < listadonuevo.length; i++) {
         const element = listadonuevo[i];
         console.log(element)
@@ -26,11 +29,15 @@ var cargarTabla = (listadonuevo)=>{
         render+="<td>"+element.interes+"</td>"
         render+="<td>"+element.moneda+"</td>"
         render+="<td>"+element.file+"</td>"
+        render+="<td>"+element.rango+"</td>"
         render+="<td>"
         render+="<button id='btnEditar"+i+"'>Editar</button>"
         render+="<button id='btnEliminar"+i+"'>Eliminar</button>"
         render+="</td>"
         render+="</tr>"
+
+
+    
 
 
     }
@@ -43,7 +50,7 @@ var cargarTabla = (listadonuevo)=>{
             let sBtn = "<button type='button' id='btnEditar' value='"+i+"'>Editar</button>"
             eSBtnAccion.innerHTML=sBtn
 
-              // //
+            
 
             let eBtnEditarUp = document.getElementById("btnEditar");
             console.log(eBtnEditarUp)
@@ -57,17 +64,18 @@ var cargarTabla = (listadonuevo)=>{
             eintereses = element.interes;
             edolar.value = element.moneda;
             efile.value = element.file;
+            erango.value = element.rango;
         })
 
 
-
+            
 
         var eBtnEliminar = document.getElementById("btnEliminar"+i);
         eBtnEliminar.addEventListener("click",()=>{
             let sBtn = "<button type='button' id='btnEliminar' value='"+i+"'>Eliminar</button>"
             eSBtnAccion.innerHTML = sBtn
 
-            // //
+            
 
             let eBtnEliminarUp = document.getElementById("btnEliminar");
             console.log(eBtnEliminarUp)
@@ -81,13 +89,15 @@ var cargarTabla = (listadonuevo)=>{
             eintereses = element.interes;
             edolar = element.moneda;
             efile = element.file;
+            erango = element.rango;
             
         })
     }
 }
 
 
-// //
+/* obtiene los elemenstos del formulario mediuante el id de ellos, luego obtiene el valor de ellos mediante el
+ ".value", luego modifica el objeto de la lista desde la modificacion del indice  */
 
 var modificar = (listadonuevo)=>{
     
@@ -99,6 +109,7 @@ var modificar = (listadonuevo)=>{
     let edolar = document.getElementById("moneda");
     let eBtneditar = document.getElementById("btnEditar");
     let efile = document.getElementById("file")
+    let erango = document.getElementById("rango");
 
     let nombreapellido = enombre.value;
     let contraseniaa = econtrasena.value;
@@ -107,7 +118,9 @@ var modificar = (listadonuevo)=>{
     let interes = eintereses.value;
     let moneda = edolar.value;
     let file = efile.value;
+    let rango = erango.value;
     let indice = eBtneditar.value;
+
 
     listadonuevo[indice].nombreapellido = nombreapellido;
     listadonuevo[indice].contraseniaa = contraseniaa;
@@ -116,6 +129,7 @@ var modificar = (listadonuevo)=>{
     listadonuevo[indice].interes = interes;
     listadonuevo[indice].moneda = moneda;
     listadonuevo[indice].file = file;
+    listadonuevo[indice].rango = rango;
     
     localStorage.setItem("personas",JSON.stringify(listadonuevo));
     
@@ -123,7 +137,7 @@ var modificar = (listadonuevo)=>{
 }
 
 
-// //
+
 
 var eliminar = (listadonuevo)=>{
     let eBtnEliminarUp = document.getElementById("btnEliminar");
@@ -138,7 +152,10 @@ var eliminar = (listadonuevo)=>{
 }
 
 
-// //
+/* mediante el "getElementById" identificamos los id de los elementos, con el ".value" podemos sacarle el valor, luego se ocupa el condicional 
+if para determinar el valor de True o False en mi caso de "ccheck", luego se guarda y almacena en el google mediuate "localStorage.getitem", 
+luego se usa "Json.parse" para traspasar el valor a cadena Json, por ultimo utilizamos otravez el condicional if para comprobar "listadoAntiguo" si es "null",
+si pasa eso se hace un objeto persona con los valores anteriores, luego crea una variable "listadonuevo" que es un array el que tiene "persona", luego esto se puede apreciar en el navegador */
 
 var registro=()=>{
     
@@ -149,6 +166,7 @@ var registro=()=>{
     let eintereses = document.getElementById("interes");
     let edolar = document.getElementById("moneda");
     let efile = document.getElementById("file")
+    let erango = document.getElementById("rango")
 
     let nombree = enombre.value;
     let contraseniaaa = econtrasena.value;
@@ -164,6 +182,7 @@ var registro=()=>{
     let interesss = eintereses.value;
     let euro = edolar.value;
     let file = efile.value;
+    let rango = erango.value;
  
     console.log(nombree)
     console.log(contraseniaaa)
@@ -172,6 +191,7 @@ var registro=()=>{
     console.log(interesss)
     console.log(euro)
     console.log(file)
+    console.log(rango)
     
     let listadoAntiguoStr= localStorage.getItem("personas");
     let listaAntiguo = JSON.parse(listadoAntiguoStr);
@@ -179,10 +199,10 @@ var registro=()=>{
     console.log(listaAntiguo)
 
     if(listaAntiguo==null){
-        let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro,"file":file};
+        let persona = {"id":0,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro,"file":file,"rango":rango};
         var listadonuevo = [persona]
     }else{
-        let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro,"file":file};
+        let persona = {"id":listaAntiguo.length,"nombreapellido":nombree,"contraseniaa":contraseniaaa,"email":correo,"check":opcion,"interes":interesss,"moneda":euro,"file":file,"rango":rango};
         var listadonuevo = [...listaAntiguo,persona]
     }
 
@@ -192,7 +212,7 @@ var registro=()=>{
     cargarTabla(listadonuevo)
 }
 
-// //
+
 
 var obtenerDatos = ()=>{
     let listadoAntiguoStr = localStorage.getItem("personas");
@@ -207,7 +227,9 @@ addEventListener('load',obtenerDatos)
 
 
 
-// //
+/* tenemos la funcion "Color", en ella el identificador "BtnColor", el cual esta en html, luego entra al condicional el cual es if y si el 
+valor == a "0", este ejecutara el color con la variable "Rojo", luego incluye la variable "Azul" utilizando "classList.add", luego se elimina la 
+clase "Rojo" con "class.remove", esto hace que cada vez que se aprete el boton pase de la variable Rojo a la Azul y con sus colores correspondientes */
 
 
 //------------Cambio de color del fondo------------------------
@@ -229,7 +251,7 @@ var Color =()=> {
 
 
 
-// //
+/* Esto cambia el tamañao de la letra mediante las variables "chico","mediano","largo", cada vez que se apreta el boton, empieza de chico a mediano y por ultimo  a largo. */
 
 
 //-----------Cambio de Tamaño--------------------------------------

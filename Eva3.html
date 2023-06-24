@@ -19,7 +19,7 @@
 <button id="btnColor" value="0">--Color de fondo--</button>
 <button id="btnLetra" value="1">--Tamaño Letra--</button>
 
-<body class="Rojo mediano">
+<body class="Rojo mediano border border-4 border-Rojo">
     <section class="navbar navbar-dark mediano" id="1">
         <div class="container">
             <img src="img/WhatsApp Image 2023-05-01 at 1.33.32 PM.jpeg" class="img Tubal" alt="...">
@@ -36,7 +36,7 @@
         <div class="container mediano">    
         </button>
         <div class="collapse navbar-collapse mediano" id="navbarS">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 btn  mediano">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 btn mediano">
                 <li class="nav-item mediano">
                     <a href="#1" class="nav-link mediano">Inicio</a>
 
@@ -70,7 +70,7 @@
         <br>
         <br>
     <!-- Nuestros servicios -->
-            <h1 class="border  text-center fw-bold mediano" id="2"> Nuestros servicios como empresa<br>
+            <h1 class="text-center fw-bold mediano" id="2"> Nuestros servicios como empresa<br>
                 <p class="fw-semibold mediano">Reaparición Mantención</p>
                 <br>
                 <p class="fw-normal mediano">Hidraulica</p>
@@ -83,67 +83,67 @@
     
     <!-- Tipos de trabajos -->
 
-    <div class="row mediano">
+    <div class="row">
         
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title mediano">Hidraulicos</h5>
-              <img src="img/cilindro ej.jpg" class="card-img-top  d-block w-25 col-md-6" alt="...">
-            </div>
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mediano">Hidraulicos</h5>
+            <img src="img/cilindro ej.jpg" class="card-img-top  d-block w-25 col-md-6" alt="...">
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+          
+            <p class="card-text">Hacemos todo tipos de Trabajos hidraulicos como cilindros, bombas hidraulicas, cambio de repuestos y reparaciones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mediano">Electricos</h5>
+            <img src="img/electrico ej.jpg" class="card-img-top  d-block w-25 col-md-6" alt="...">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
             
-              <p class="card-text mediano">Hacemos todo tipos de Trabajos hidraulicos como cilindros, bombas hidraulicas, cambio de repuestos y reparaciones.</p>
-            </div>
+            <p class="card-text">Tenemos experiencia en tableros electricos, motores Bifasicos y Trifasicos, tambien en luminaria y bombas electricas.</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="row mediano">
-        
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title mediano">Electricos</h5>
-              <img src="img/electrico ej.jpg" class="card-img-top  d-block w-25 col-md-6" alt="...">
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              
-              <p class="card-text">Tenemos experiencia en tableros electricos, motores Bifasicos y Trifasicos, tambien en luminaria y bombas electricas.</p>
-            </div>
+    <div class="row">
+      
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mediano">Mecanicos</h5>
+            <img src="img/Mecanicos.jpg" class="card-img-top  d-block w-25 col-md-6" id="3" alt="...">
           </div>
         </div>
       </div>
-
-      <div class="row">
-        
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title mediano">Mecanicos</h5>
-              <img src="img/Mecanicos.jpg" class="card-img-top  d-block w-25 col-md-6" id="3" alt="...">
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              
-              <p class="card-text mediano">Somos especialistas en toda area general mecanica, cambio y reparacion de motores en general, mantenciones y venta de repuestos.</p>
-            </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            
+            <p class="card-text">Somos especialistas en toda area general mecanica, cambio y reparacion de motores en general, mantenciones y venta de repuestos.</p>
           </div>
         </div>
       </div>
-      <br>
-      <br>
+    </div>
+    <br>
+    <br>
       
     
 
@@ -261,10 +261,12 @@
               <p class="mediano">Ingrese un archivo de apoyo si es necesario</p>
               <input type="file" class="form-control" aria-label="file example" id="file">
             </div>
-            <div class="col-6 container">
-            <label for="customRange2" class="form-label">Que Tanto le gusto la paguina</label>
-            <input type="range" class="form-range" min="0" max="5" id="customRange2">
+            <div class="col-12 container">
+            <label for="customRange2" class="form-label">Que Tanto le gusto la paguina, opine del 0 al 5</label>
+            <input type="range" class="form-range" min="0" max="5" id="rango">
             </div>
+            <br>
+
    
 <br>
 <br>
